@@ -5,4 +5,10 @@ public with sharing class TreeLocationController {
                 FROM Tree_Plantation__c
                 WHERE Tree__c =: treeId];
     }
+    @AuraEnabled(cacheable=true)
+    public static List<Tree__c> getAllTrees(){
+        return [SELECT Id, Name
+                FROM Tree__c
+                ];
+    }
 }
